@@ -4,7 +4,7 @@
 // Imported packages needed for Face Class
 import java.awt.Color;
 import java.util.Random;
-
+import java.awt.Graphics;
 
 // Face Class
 class Face {
@@ -60,6 +60,44 @@ class Face {
         if (printed == false){
             System.out.println("Face "+number+" has an x value of "+xValue+", a y value of "+yValue+", a width of "+widthValue+", a height of "+heightValue+", and is a "+smilingStatusValue+" face.");
             printed = true;
+        }
+    }
+    public void draw(Graphics g){
+        // Draws each face depending on what type of face is being drawn.
+        switch(getSmilingStatus()) {
+            case "Smiling":
+                g.setColor(Color.BLACK);
+                g.drawOval(getX(), getY(), getWidth(), getHeight());
+                g.setColor(getEyeColor());
+                g.fillOval(getX()+(getWidth()/3)-(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.fillOval(getX()+((getWidth()*2)/5)+(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.setColor(Color.BLACK);
+                g.drawOval(getX()+(getWidth()/3)-(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.drawOval(getX()+((getWidth()*2)/5)+(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.drawArc(getX(), getY()-((getHeight()/6)), getWidth()-10, getHeight()-10, 225, 90);
+                break;
+            case "Frowning":
+                g.setColor(Color.BLACK);
+                g.drawOval(getX(), getY(), getWidth(), getHeight());
+                g.setColor(getEyeColor());
+                g.fillOval(getX()+(getWidth()/3)-(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.fillOval(getX()+((getWidth()*2)/5)+(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.setColor(Color.BLACK);
+                g.drawOval(getX()+(getWidth()/3)-(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.drawOval(getX()+((getWidth()*2)/5)+(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.drawArc(getX(), getY()+((getHeight()/3)*2), getWidth()-10, getHeight()-10, 45, 90);
+                break;
+            case "Neutral":
+                g.setColor(Color.BLACK);
+                g.drawOval(getX(), getY(), getWidth(), getHeight());
+                g.setColor(getEyeColor());
+                g.fillOval(getX()+(getWidth()/3)-(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.fillOval(getX()+((getWidth()*2)/5)+(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.setColor(Color.BLACK);
+                g.drawOval(getX()+(getWidth()/3)-(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.drawOval(getX()+((getWidth()*2)/5)+(getHeight()/7), getY()+(getHeight()/3)-((getHeight()/7)/2), getHeight()/7, (getHeight()/7)*2);
+                g.drawLine(getX()+(getWidth()/3)-(getHeight()/15), getY()+(getHeight()/3)+((getHeight()*2)/5), getX()+((getWidth()*2)/5)+(getHeight()/5), getY()+(getHeight()/3)+((getHeight()*2)/5));
+                break;
         }
     }
 
