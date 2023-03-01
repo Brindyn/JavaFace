@@ -8,14 +8,14 @@ import java.awt.Graphics;
 
 // Face Class
 class Face {
-    public int width;
-    public int height;
-    public int x;
-    public int y;
-    public String smilingStatus;
-    public Color eyeColor;
+    private int width;
+    private int height;
+    private int x;
+    private int y;
+    private String smilingStatus;
+    private Color eyeColor;
     // Used for the toString() function
-    public Boolean printed = false;
+    private Boolean printed = false;
 
     // Getters and Setters for member variables
     public int getWidth() {
